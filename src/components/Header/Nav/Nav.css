@@ -1,0 +1,23 @@
+nav {
+  background-color: black;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+nav ul li {
+  margin: 0.5rem;
+  font-size: calc(0.3rem + 2vw);
+  padding: 0 0.4em;
+}
+
+nav ul li a {
+  font-family: 'Audiowide', cursive;
+  color: #11a5da;
+}

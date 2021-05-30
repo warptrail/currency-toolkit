@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 2vh;
+  background-color: darkmagenta;
+  padding: calc(0.8em + 1vh) 0;
+  font-size: calc(0.8rem + 2vw);
+  margin: 0;
+  padding: 0;
+}
+
+.settings_bar {
+  background-color: #222b2e;
+  width: 100%;
+  text-align: left;
+}

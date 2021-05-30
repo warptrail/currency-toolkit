@@ -1,0 +1,8 @@
+.currency_converter_app {
+  margin-top: calc(18vh - 2em);
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

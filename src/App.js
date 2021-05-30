@@ -1,89 +1,35 @@
 import React, { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header/Header';
-import CurrencyRow from './components/CurrencyRow/CurrencyRow';
-
-const BASE_URL =
-  'http://api.exchangeratesapi.io/v1/latest?access_key=286bae3faff2ab83e0bb6e5e72a95386';
+import CurrencyConverterApp from './components/CurrencyConverterApp/CurrencyConverterApp';
+import LocalStorageInput from './components/LocalStorageInput/LocalStorageInput';
 
 function App() {
-  const [currencyOptions, setCurrencyOptions] = useState([]);
-  const [fromCurrency, setFromCurrency] = useState();
-  const [toCurrency, setToCurrency] = useState();
-  const [exchangeRate, setExchangeRate] = useState();
-  const [amount, setAmount] = useState(1);
-  const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
-  const [allRates, setAllRates] = useState({});
+  const [toggleLocalStorage, setToggleLocalStorage] = useState(false);
 
-  // Fetch currency exchange rates
-  useEffect(() => {
-    fetch(BASE_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllRates(data.rates);
-        setCurrencyOptions([...Object.keys(data.rates)]);
-        setFromCurrency(data.base);
-        setToCurrency('USD');
-        setExchangeRate(data.rates['USD']);
-      });
-  }, []);
+  const showLocalStorage = (e) => {
+    setToggleLocalStorage(true);
+  };
 
-  // ! ======= The math =======
-  let toAmount, fromAmount;
-
-  if (fromCurrency === 'EUR') {
-    if (amountInFromCurrency) {
-      fromAmount = amount;
-      toAmount = amount * exchangeRate;
-    } else {
-      toAmount = amount;
-      fromAmount = amount / exchangeRate;
-    }
-  } else {
-    // EUR is stuck as base currency, so everything must convert to EUR and then new currency
-    if (amountInFromCurrency) {
-      fromAmount = parseFloat(amount);
-      let fromAmountToEUR = fromAmount / allRates[fromCurrency];
-      let convertToNewCurrency = fromAmountToEUR * allRates[toCurrency];
-      toAmount = convertToNewCurrency;
-    } else {
-      toAmount = parseFloat(amount);
-      let toAmountToEUR = toAmount / allRates[toCurrency];
-      let convertToNewCurrency = toAmountToEUR * allRates[fromCurrency];
-      fromAmount = convertToNewCurrency;
-    }
-  }
-
-  function handleFromAmountChange(e) {
-    setAmount(e.target.value);
-    setAmountInFromCurrency(true);
-  }
-
-  function handleToAmountChange(e) {
-    setAmount(e.target.value);
-    setAmountInFromCurrency(false);
-  }
-
+  const hideLocalStorage = (e) => {
+    setToggleLocalStorage(false);
+  };
   return (
-    <main className="App">
-      <h1>Currency Converter </h1>
-      <CurrencyRow
-        selectedCurrency={fromCurrency}
-        currencyOptions={currencyOptions}
-        onChangeCurrency={(e) => setFromCurrency(e.target.value)}
-        amount={fromAmount}
-        onChangeAmount={handleFromAmountChange}
+    <div>
+      <Header
+        toggleFunction={showLocalStorage}
+        toggleButtonDisplay={toggleLocalStorage}
       />
-      <div className="equals_sign">=</div>
-      <CurrencyRow
-        selectedCurrency={toCurrency}
-        currencyOptions={currencyOptions}
-        onChangeCurrency={(e) => setToCurrency(e.target.value)}
-        amount={toAmount}
-        onChangeAmount={handleToAmountChange}
-      />
-    </main>
+      <main>
+        <LocalStorageInput
+          isToggled={toggleLocalStorage}
+          closeWindowFunction={hideLocalStorage}
+        />
+        <CurrencyConverterApp />
+      </main>
+    </div>
   );
 }
 

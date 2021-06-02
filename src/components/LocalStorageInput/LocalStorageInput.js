@@ -4,7 +4,6 @@ import ToggleButton from '../Buttons/ToggleButton';
 import './LocalStorageInput.css';
 
 export default function LocalStorageInput(props) {
-  console.log(props);
   const { isToggled, closeWindowFunction } = props;
   const [value, setValue] = useState(
     localStorage.getItem('myValueInLocalStorage' || '')

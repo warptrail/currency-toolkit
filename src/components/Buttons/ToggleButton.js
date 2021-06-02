@@ -3,7 +3,6 @@ import React from 'react';
 import './ToggleButton.css';
 
 export default function ToggleButton(props) {
-  console.log(props);
   const { content, clickFunction, className } = props;
   return (
     <button

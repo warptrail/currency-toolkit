@@ -27,31 +27,64 @@ export default function StockTicker() {
   async function getTickers() {
     try {
       setLoadingTickers(true);
-      const tickerDataLoader = [];
 
-      const goldData = await fetch(GOLD_URL);
-      const goldDataJson = await goldData.json();
-      tickerDataLoader.push(goldDataJson);
+      // check that local storage has the proper data
+      if (localStorage.getItem('tickerData')) {
+        const tickerDataLocalStorage = JSON.parse(
+          localStorage.getItem('tickerData')
+        );
+        setTickerData(tickerDataLocalStorage);
+      } else {
+        // if no data in local storage, make api call to get it
+        const tickerDataLoader = [];
 
-      const appleData = await fetch(AAPL_URL);
-      const appleDataJson = await appleData.json();
-      tickerDataLoader.push(appleDataJson);
+        const goldData = await fetch(GOLD_URL);
+        const goldDataJson = await goldData.json();
+        tickerDataLoader.push(goldDataJson);
 
-      const starbucksData = await fetch(SBUX_URL);
-      const starbucksDataJson = await starbucksData.json();
-      tickerDataLoader.push(starbucksDataJson);
+        const appleData = await fetch(AAPL_URL);
+        const appleDataJson = await appleData.json();
+        tickerDataLoader.push(appleDataJson);
 
-      const teslaData = await fetch(TSLA_URL);
-      const teslaDataJson = await teslaData.json();
-      tickerDataLoader.push(teslaDataJson);
+        const starbucksData = await fetch(SBUX_URL);
+        const starbucksDataJson = await starbucksData.json();
+        tickerDataLoader.push(starbucksDataJson);
 
-      const bitcoinData = await fetch(BITCOIN_URL);
-      const bitCoinDataJson = await bitcoinData.json();
-      tickerDataLoader.push(bitCoinDataJson);
+        const teslaData = await fetch(TSLA_URL);
+        const teslaDataJson = await teslaData.json();
+        tickerDataLoader.push(teslaDataJson);
 
-      setTickerData(tickerDataLoader);
-      localStorage.setItem('tickerData', tickerDataLoader);
-      console.log(localStorage.getItem('tickerData'));
+        const bitcoinData = await fetch(BITCOIN_URL);
+        const bitCoinDataJson = await bitcoinData.json();
+        tickerDataLoader.push(bitCoinDataJson);
+
+        let hasError = false;
+        let errorMessage = 'no error';
+
+        console.log(tickerDataLoader.length);
+
+        tickerDataLoader.forEach((ticker) => {
+          console.log(ticker);
+          if (ticker.status === 'ERROR') {
+            hasError = true;
+            errorMessage = ticker.error;
+            console.log('bad fetch');
+          } else {
+            console.log('good fetch');
+          }
+        });
+
+        if (hasError) {
+          setTickerData({
+            error: errorMessage,
+            message: 'refresh the page in 60 seconds',
+          });
+          localStorage.removeItem('tickerData');
+        } else {
+          setTickerData(tickerDataLoader);
+          localStorage.setItem('tickerData', JSON.stringify(tickerDataLoader));
+        }
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -61,18 +94,20 @@ export default function StockTicker() {
 
   useEffect(() => {
     getTickers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // ! Test Console Logs
   console.log(tickerData);
-  console.log(tickerError);
-  console.log(dayjs());
+  // console.log(tickerError);
+  // console.log(dayjs(1622232000000).format('DD/MM/YYYY - HH:MM:ss ZZ'));
 
   // How to read an object in local storage
-  console.log(localStorage.getItem('foo'));
+  // console.log(localStorage.getItem('foo'));
 
   return (
     <div className="stock_ticker">
-      Stocks Stocks Stonks!
+      Stocks Stocks Stonks 🚜 🚛 🚜
       <ul>{}</ul>
     </div>
   );

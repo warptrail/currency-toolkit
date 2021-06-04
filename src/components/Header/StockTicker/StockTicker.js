@@ -116,7 +116,7 @@ export default function StockTicker() {
   }, []);
 
   // ! Test Console Logs
-  // console.log(tickerData);
+  console.log(tickerData);
   // console.log(dayjs(1622664000000).utc().format('MM/DD/YYYY - hh:mm a Z'));
   // const a = dayjs(1622664000000); // 1622678399999
   // const b = dayjs();
@@ -132,7 +132,18 @@ export default function StockTicker() {
   const testArr = ['stocks', 'gold', 'bitcoin', '🚜-🚜-🚜-🚜'];
 
   function mapStocks() {
-    return testArr.map((item) => <li key={item}>{item}</li>);
+    if (tickerData) {
+      return tickerData.map((ticker) => {
+        const tickerName = ticker.ticker;
+        const tickerOpen = ticker.results[0].o;
+        const tickerClose = ticker.results[0].c;
+        const tickerChange = (
+          ((tickerClose - tickerOpen) / tickerClose) *
+          100
+        ).toFixed(2);
+        return <li key={tickerName}>{tickerChange} % </li>;
+      });
+    }
   }
 
   return (

@@ -2,3 +2,14 @@
   background-color: black;
   width: 100%;
 }
+
+.stock_ticker ul {
+  display: flex;
+  list-style: none;
+}
+
+.stock_ticker ul li {
+  border: 1px solid yellow;
+  padding: 0 10px;
+  margin: 0 10px;
+}

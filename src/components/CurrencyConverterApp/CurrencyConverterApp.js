@@ -32,27 +32,17 @@ function CurrencyConverterApp() {
   // ! ======= The math =======
   let toAmount, fromAmount;
 
-  if (fromCurrency === 'EUR') {
-    if (amountInFromCurrency) {
-      fromAmount = amount;
-      toAmount = amount * exchangeRate;
-    } else {
-      toAmount = amount;
-      fromAmount = amount / exchangeRate;
-    }
+  // EUR is stuck as base currency, so everything must convert to EUR and then to new currency
+  if (amountInFromCurrency) {
+    fromAmount = parseFloat(amount);
+    let fromAmountToEUR = fromAmount / allRates[fromCurrency];
+    let convertToNewCurrency = fromAmountToEUR * allRates[toCurrency];
+    toAmount = convertToNewCurrency;
   } else {
-    // EUR is stuck as base currency, so everything must convert to EUR and then to new currency
-    if (amountInFromCurrency) {
-      fromAmount = parseFloat(amount);
-      let fromAmountToEUR = fromAmount / allRates[fromCurrency];
-      let convertToNewCurrency = fromAmountToEUR * allRates[toCurrency];
-      toAmount = convertToNewCurrency;
-    } else {
-      toAmount = parseFloat(amount);
-      let toAmountToEUR = toAmount / allRates[toCurrency];
-      let convertToNewCurrency = toAmountToEUR * allRates[fromCurrency];
-      fromAmount = convertToNewCurrency;
-    }
+    toAmount = parseFloat(amount);
+    let toAmountToEUR = toAmount / allRates[toCurrency];
+    let convertToNewCurrency = toAmountToEUR * allRates[fromCurrency];
+    fromAmount = convertToNewCurrency;
   }
 
   function handleFromAmountChange(e) {

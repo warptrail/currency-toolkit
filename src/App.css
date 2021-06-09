@@ -8,3 +8,9 @@ h1 {
   padding: 0.2em 0;
   font-size: 2rem;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

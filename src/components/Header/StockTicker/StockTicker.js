@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import TickerInfo from './TickerInfo';
+
 import './StockTicker.css';
 
 import dayjs from 'dayjs';
@@ -129,26 +131,37 @@ export default function StockTicker() {
 
   // Get the values
 
-  const testArr = ['stocks', 'gold', 'bitcoin', '🚜-🚜-🚜-🚜'];
-
   function mapStocks() {
     if (tickerData) {
       return tickerData.map((ticker) => {
         const tickerName = ticker.ticker;
         const tickerOpen = ticker.results[0].o;
         const tickerClose = ticker.results[0].c;
-        const tickerChange = (
+        const tickerCloseDollars = tickerClose - tickerOpen;
+        const tickerChangePercent = (
           ((tickerClose - tickerOpen) / tickerClose) *
           100
         ).toFixed(2);
-        return <li key={tickerName}>{tickerChange} % </li>;
+        return (
+          <tickerInfo
+            key={tickerName}
+            name={tickerName}
+            open={tickerOpen}
+            close={tickerClose}
+          />
+        );
       });
+    } else {
+      return <span>Ticker Data Loading...</span>;
     }
   }
 
   return (
     <div className="stock_ticker">
-      <ul>{mapStocks()}</ul>
+      {/* <ul>{mapStocks()}</ul> */}
+      <ul>
+        <TickerInfo />
+      </ul>
     </div>
   );
 }

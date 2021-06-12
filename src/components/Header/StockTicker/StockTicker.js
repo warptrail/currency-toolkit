@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import TickerInfo from './TickerInfo';
+import Slider from 'react-slick';
 
+// Import css files
 import './StockTicker.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -10,6 +14,25 @@ import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
+
+const dinoPhotos = [
+  {
+    name: 'dinosaur 1',
+    url: 'https://images.unsplash.com/photo-1583307359900-dbefeb18e3cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=856&q=80',
+  },
+  {
+    name: 'dinosaur 2',
+    url: 'https://images.unsplash.com/photo-1606856110002-d0991ce78250?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+  },
+  {
+    name: 'dinosaur 3',
+    url: 'https://images.unsplash.com/photo-1577471486886-1e34bbae345f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=751&q=80',
+  },
+  {
+    name: 'dinosaur 4',
+    url: 'https://images.unsplash.com/photo-1589519659882-3eb28ebc769f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80',
+  },
+];
 
 const GOLD_URL =
   'https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/prev?unadjusted=true&apiKey=eNgqBP1AgBICpcF9y0MDx6XdeY106aLb';
@@ -135,19 +158,31 @@ export default function StockTicker() {
     if (tickerData) {
       return tickerData.map((ticker) => {
         const tickerName = ticker.ticker;
-        const tickerOpen = ticker.results[0].o;
-        const tickerClose = ticker.results[0].c;
-        const tickerCloseDollars = tickerClose - tickerOpen;
+        const tickerOpen = ticker.results[0].o.toFixed(2);
+        const tickerClose = ticker.results[0].c.toFixed(2);
+        const tickerChangeDollars = (tickerClose - tickerOpen).toFixed(2);
+        const tickerChangeDollarsFormat = Math.abs(tickerChangeDollars);
         const tickerChangePercent = (
-          ((tickerClose - tickerOpen) / tickerClose) *
+          (Math.abs(tickerClose - tickerOpen) / tickerClose) *
           100
         ).toFixed(2);
+        let plusOrMinus;
+        if (tickerChangeDollars < 0) {
+          plusOrMinus = 'red';
+        } else {
+          plusOrMinus = 'green';
+        }
+        console.log(tickerChangeDollarsFormat);
         return (
-          <tickerInfo
+          <TickerInfo
             key={tickerName}
             name={tickerName}
             open={tickerOpen}
             close={tickerClose}
+            changeDollars={tickerChangeDollars}
+            changeDollarsFormat={tickerChangeDollarsFormat}
+            changePercent={tickerChangePercent}
+            plusOrMinus={plusOrMinus}
           />
         );
       });
@@ -156,12 +191,43 @@ export default function StockTicker() {
     }
   }
 
+  const settings = {
+    dots: false,
+    fade: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    arrows: false,
+    slidesToScroll: 1,
+    className: 'slides',
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 456,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="stock_ticker">
-      {/* <ul>{mapStocks()}</ul> */}
-      <ul>
-        <TickerInfo />
-      </ul>
+    <div className="inner_bevel">
+      <div className="stock_ticker">
+        <Slider {...settings}>{mapStocks()}</Slider>
+      </div>
     </div>
   );
 }

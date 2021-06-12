@@ -6,3 +6,8 @@
   justify-content: center;
   text-align: center;
 }
+
+.currency_converter_app h2 {
+  font-size: 2rem;
+  margin-bottom: 5vh;
+}

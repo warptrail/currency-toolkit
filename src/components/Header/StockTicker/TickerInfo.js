@@ -1,15 +1,44 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+
+// https://blog.logrocket.com/using-font-awesome-5-with-react/
+
 export default function TickerInfo(props) {
+  const {
+    name,
+    open,
+    close,
+    changeDollars,
+    changePercent,
+    plusOrMinus,
+    changeDollarsFormat,
+  } = props;
+
+  const renderArrowIcon = () => {
+    if (changeDollars < 0) {
+      return <FontAwesomeIcon icon={faPlay} transform={{ rotate: 90 }} />;
+    } else {
+      return <FontAwesomeIcon icon={faPlay} transform={{ rotate: 270 }} />;
+    }
+  };
+
   return (
-    <li>
-      <div>
-        <span className="ticker_name">Name</span>
-        <span className="ticker_close">$900</span>
+    <div className="ticker">
+      <div className="top_row">
+        <span className="ticker_name">{name}</span>
+        <span className="ticker_close">${close}</span>
       </div>
-      <div>
-        <span className="ticker_change">^10%($1.40)</span>
+      <div className="bottom_row">
+        <span className={`ticker_change dollars ${plusOrMinus}`}>
+          <span className="icon">{renderArrowIcon()}</span>$
+          {changeDollarsFormat}
+        </span>
+        <span className={`ticker_change percent ${plusOrMinus}`}>
+          {changePercent} %
+        </span>
       </div>
-    </li>
+    </div>
   );
 }

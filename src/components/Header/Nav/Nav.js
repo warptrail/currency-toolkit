@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Nav.css';
 
@@ -7,7 +8,7 @@ export default function Nav() {
     <nav>
       <ul>
         <li>
-          <a href="https://chriswere.uk/">Currency Converter</a>
+          <Link to="/currencyconverter">Currency Converter</Link>
         </li>
         <li>
           <a href="https://chriswere.uk/">Tip Calculator</a>

@@ -57,7 +57,7 @@ function CurrencyConverterApp() {
   return (
     <div>
       <div className="currency_converter_app">
-        <h1>Currency Converter </h1>
+        <h2>Currency Converter </h2>
         <CurrencyRow
           selectedCurrency={fromCurrency}
           currencyOptions={currencyOptions}

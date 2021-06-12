@@ -1,15 +1,123 @@
+.inner_bevel {
+  width: 100%;
+  background-color: #222b2e;
+}
+
 .stock_ticker {
   background-color: black;
-  width: 100%;
+  border: 1px solid hotpink;
+  padding: 0.2em;
+  /* overflow-x: hidden; */
+  /* margin: 0 auto; */
+  /* border-bottom: 10px; */
 }
 
-.stock_ticker ul {
+.ticker {
   display: flex;
-  list-style: none;
+  border: 1px solid yellowgreen;
+  align-items: center;
+  margin: 0.3em;
+  padding: 0.1em;
 }
 
-.stock_ticker ul li {
-  border: 1px solid yellow;
-  padding: 0 10px;
-  margin: 0 10px;
+.top_row {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.bottom_row {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: space-between;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.bottom_row > span {
+  margin-top: 0.3rem;
+  text-align: right;
+}
+
+.ticker_name {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0cc6dc;
+}
+
+.ticker_close {
+  color: #eee;
+  font-weight: 400;
+  font-size: calc(0.9rem + 3px);
+  margin-top: 4px;
+  margin-left: 6px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: #00ff66;
+}
+
+.ticker .icon {
+  font-size: 0.7rem;
+  margin-right: 0.5em;
+  align-content: center;
+}
+
+@media only screen and (min-width: 456px) {
+  /* Between 650 and 1200 px */
+
+  .ticker {
+    max-width: 300px;
+    padding-bottom: 0.3em;
+  }
+
+  .ticker_name {
+    font-size: calc(0.7rem + 1vw);
+  }
+
+  .ticker_close {
+    font-size: calc(0.5rem + 1vw);
+  }
+
+  .ticker .top_row {
+    flex-direction: column;
+    padding: 0 0.3em;
+    margin-top: 7px;
+  }
+
+  .ticker .bottom_row {
+    font-size: calc(0.5rem + 2.5px + 1vw);
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .ticker_name {
+    font-size: 0.7rem;
+  }
+
+  .ticker_close {
+    font-size: 0.65rem;
+  }
+
+  .bottom_row > span {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .inner_bevel {
+  }
+
+  .stock_ticker {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }

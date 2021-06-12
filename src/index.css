@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,4 +24,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media only screen and (min-width: 400px) {
+  /* Between 400 and 650 px */
+  :root {
+    font-size: calc(1rem + ((1vw - 3px) * 2));
+  }
+}
+@media only screen and (min-width: 700px) {
+  /* Between 650 and 1200 px */
+  :root {
+    font-size: calc(1rem + ((1vw - 4px) * 1.4));
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /*Over 1200 px*/
+  :root {
+    font-size: 20px;
+  }
 }

@@ -11,13 +11,13 @@ export default function Nav() {
           <Link to="/currencyconverter">Currency Converter</Link>
         </li>
         <li>
-          <a href="https://chriswere.uk/">Tip Calculator</a>
+          <Link to="/percentages">Percentages</Link>
         </li>
         <li>
-          <a href="https://chriswere.uk/">Percentages</a>
+          <Link to="/salaryhourly">Salary to Hourly</Link>
         </li>
         <li>
-          <a href="https://chriswere.uk/">Salary to Hourly</a>
+          <Link to="/tipcalculator">Tip Calculator</Link>
         </li>
       </ul>
     </nav>

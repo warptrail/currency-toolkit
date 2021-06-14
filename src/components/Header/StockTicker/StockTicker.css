@@ -4,7 +4,7 @@
 }
 
 .stock_ticker {
-  background-color: black;
+  background-color: #222b2e;
   border: 1px solid hotpink;
   padding: 0.2em;
   /* overflow-x: hidden; */
@@ -18,6 +18,21 @@
   align-items: center;
   margin: 0.3em;
   padding: 0.1em;
+  background-image: linear-gradient(
+    to left top,
+    #042607,
+    #00291c,
+    #002b2b,
+    #002c35,
+    #092c3b,
+    #122b39,
+    #182b37,
+    #1d2a35,
+    #1a2830,
+    #19262a,
+    #192425,
+    #192121
+  );
 }
 
 .top_row {

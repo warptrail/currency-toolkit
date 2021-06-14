@@ -4,13 +4,35 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 2vh;
+  /* min-height: 2vh; */
   background-color: darkmagenta;
-  padding: calc(0.8em + 1vh) 0;
+  /* padding: calc(0.8em + 1vh) 0; */
   margin: 0;
   padding: 0;
 }
 
 h1 {
   font-size: 4rem;
+  margin: 0.12em 0;
+  background-image: linear-gradient(45deg, #07dd2b, #0f6935);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 600%;
+  animation: color-change 3s linear infinite;
+  animation-direction: alternate;
+}
+
+h1 a:active {
+  background-image: linear-gradient(45deg, #dd5d07, #dabc14);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes color-change {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
 }

@@ -16,6 +16,7 @@ export default function Footer(props) {
           />
         )}
       </div>
+      This is the footer where all the supplement information will go
     </footer>
   );
 }

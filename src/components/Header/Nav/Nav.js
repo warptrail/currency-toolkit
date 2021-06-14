@@ -1,25 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { MenuList } from './MenuList';
 
 import './Nav.css';
 
 export default function Nav() {
+  const Menu = MenuList.map(({ url, title }, index) => {
+    return (
+      <li key={index}>
+        <NavLink exact to={url} activeClassName="active">
+          {title}
+        </NavLink>
+      </li>
+    );
+  });
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to="/currencyconverter">Currency Converter</Link>
-        </li>
-        <li>
-          <Link to="/percentages">Percentages</Link>
-        </li>
-        <li>
-          <Link to="/salaryhourly">Salary to Hourly</Link>
-        </li>
-        <li>
-          <Link to="/tipcalculator">Tip Calculator</Link>
-        </li>
-      </ul>
+      <ul>{Menu}</ul>
     </nav>
   );
 }

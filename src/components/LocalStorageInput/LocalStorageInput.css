@@ -76,7 +76,6 @@
   }
 
   .local_storage_app input {
-    font-size: calc((90vw - 12rem) / 9);
     font-size: calc((45vw - 4.5rem) / 7);
   }
 

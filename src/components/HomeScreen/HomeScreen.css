@@ -1,0 +1,19 @@
+.homescreen {
+  /* border: 1px solid yellow; */
+  background-color: #232e37;
+  padding: 20px;
+}
+
+.homescreen h2 {
+  font-family: 'Fahkwang', sans-serif;
+  color: aliceblue;
+}
+
+.homescreen img {
+  width: 100%;
+}
+
+.homescreen button {
+  font-size: 1.5rem;
+  margin-top: 1em;
+}

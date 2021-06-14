@@ -13,6 +13,24 @@ a:active {
   color: hotpink;
 }
 
+button,
+input[type='submit'],
+input[type='reset'] {
+  background: #060e2b;
+  color: inherit;
+  border: none;
+  padding: 0.4em;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 8px;
+}
+
+button:active {
+  background-color: blue;
+  border-radius: 8px;
+}
+
 .equals_sign {
   padding: 0.2em 0;
   font-size: 2rem;

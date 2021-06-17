@@ -177,7 +177,6 @@ export default function StockTicker() {
           <TickerInfo
             key={tickerName}
             name={tickerName}
-            open={tickerOpen}
             close={tickerClose}
             changeDollars={tickerChangeDollars}
             changeDollarsFormat={tickerChangeDollarsFormat}

@@ -1,63 +1,53 @@
 .inner_bevel {
-  width: 100%;
+  /* width: 100%; */
   background-color: #222b2e;
 }
 
 .stock_ticker {
   background-color: #222b2e;
-  border: 1px solid hotpink;
+
   padding: 0.2em;
   /* overflow-x: hidden; */
-  /* margin: 0 auto; */
-  /* border-bottom: 10px; */
+  margin: 0 auto;
+  margin-bottom: 6x;
 }
 
 .ticker {
   display: flex;
-  border: 1px solid yellowgreen;
   align-items: center;
+  justify-content: center;
   margin: 0.3em;
   padding: 0.1em;
-  background-image: linear-gradient(
-    to left top,
-    #042607,
-    #00291c,
-    #002b2b,
-    #002c35,
-    #092c3b,
-    #122b39,
-    #182b37,
-    #1d2a35,
-    #1a2830,
-    #19262a,
-    #192425,
-    #192121
-  );
+  background-color: #12181c;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: rgb(49, 199, 73) 0px 8px 12px -7px,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
-.top_row {
+.left_side,
+.right_side {
   display: flex;
   flex-direction: column;
   width: 50%;
+  justify-content: center;
 }
 
-.bottom_row {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  justify-content: space-between;
-  font-size: 1rem;
-  text-align: right;
+.right_side {
+  justify-content: center;
 }
 
-.bottom_row > span {
-  margin-top: 0.3rem;
-  text-align: right;
+.ticker_change {
+  margin-bottom: 4px;
+}
+
+.ticker_change.percent {
+  padding-left: 20px;
 }
 
 .ticker_name {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: max(2vw, 18px);
   font-weight: 700;
   color: #0cc6dc;
 }
@@ -65,9 +55,14 @@
 .ticker_close {
   color: #eee;
   font-weight: 400;
-  font-size: calc(0.9rem + 3px);
+  font-size: max(4vw, 18px);
   margin-top: 4px;
   margin-left: 6px;
+}
+
+.ticker .icon {
+  font-size: 0.8rem;
+  margin-right: 0.5em;
 }
 
 .red {
@@ -78,61 +73,39 @@
   color: #00ff66;
 }
 
-.ticker .icon {
-  font-size: 0.7rem;
-  margin-right: 0.5em;
-  align-content: center;
-}
-
 @media only screen and (min-width: 456px) {
-  /* Between 650 and 1200 px */
-
   .ticker {
-    max-width: 300px;
-    padding-bottom: 0.3em;
   }
 
   .ticker_name {
-    font-size: calc(0.7rem + 1vw);
+    font-size: max(2vw, 18px);
   }
 
   .ticker_close {
-    font-size: calc(0.5rem + 1vw);
-  }
-
-  .ticker .top_row {
-    flex-direction: column;
-    padding: 0 0.3em;
-    margin-top: 7px;
-  }
-
-  .ticker .bottom_row {
-    font-size: calc(0.5rem + 2.5px + 1vw);
-    max-width: 60%;
-    margin: 0 auto;
+    font-size: max(1.8vw, 20px);
   }
 }
-
 @media only screen and (min-width: 700px) {
+  .ticker {
+  }
+
   .ticker_name {
-    font-size: 0.7rem;
+    font-size: max(2vw, 20px);
   }
 
   .ticker_close {
-    font-size: 0.65rem;
-  }
-
-  .bottom_row > span {
-    font-size: 0.7rem;
+    font-size: 16px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .inner_bevel {
+  .ticker {
+  }
+  .ticker_name {
+    font-size: 20px;
   }
 
-  .stock_ticker {
-    max-width: 1200px;
-    margin: 0 auto;
+  .ticker_close {
+    font-size: 18px;
   }
 }

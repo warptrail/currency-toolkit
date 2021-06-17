@@ -1,7 +1,7 @@
 .homescreen {
   /* border: 1px solid yellow; */
   background-color: #232e37;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .homescreen h2 {
@@ -10,10 +10,11 @@
 }
 
 .homescreen img {
-  width: 100%;
+  /* width: 100%; */
+  display: none;
 }
 
 .homescreen button {
-  font-size: 1.5rem;
-  margin-top: 1em;
+  /* font-size: 1.5rem; */
+  /* margin-top: 1em; */
 }

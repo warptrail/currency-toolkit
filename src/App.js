@@ -12,7 +12,12 @@ import LocalStorageInput from './components/LocalStorageInput/LocalStorageInput'
 import Footer from './components/Footer/Footer';
 
 function App() {
+  const [appMenuClick, setAppMenuClick] = useState(false);
   const [toggleLocalStorage, setToggleLocalStorage] = useState(false);
+
+  // menu toggle functions
+  const handleClick = () => setAppMenuClick(!appMenuClick);
+  const closeMobileMenu = () => setAppMenuClick(false);
 
   // Toggle the local storage window
   const showLocalStorage = (e) => {
@@ -24,7 +29,11 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Header />
+      <Header
+        appMenuClick={appMenuClick}
+        handleClick={handleClick}
+        closeMobileMenu={closeMobileMenu}
+      />
       <main>
         <Switch>
           <Route exact path="/" component={HomePage} />

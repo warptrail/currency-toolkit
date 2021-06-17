@@ -1,10 +1,11 @@
 footer {
-  margin-top: auto;
-  display: flex;
-  background-color: #111417;
-  padding: 0;
+  /* margin-top: auto; */
+  /* display: flex; */
+  /* background-color: #111417; */
+  /* padding: 0; */
+  border: 1px solid red;
 }
 
 .settings_bar {
-  min-width: 150px;
+  /* min-width: 150px; */
 }

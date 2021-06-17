@@ -7,19 +7,20 @@ import TitleEffect from './TitleEffect/TitleEffect';
 import './Header.css';
 
 export default function Header(props) {
+  const { appMenuClick, handleClick, closeMobileMenu } = props;
   return (
     <header>
       <StockTicker />
-
-      {/* <h1>
-        <Link to="/">{header1}</Link>
-      </h1> */}
 
       <div className="hero">
         <TitleEffect />
       </div>
 
-      <Nav />
+      <Nav
+        appMenuClick={appMenuClick}
+        handleClick={handleClick}
+        closeMobileMenu={closeMobileMenu}
+      />
     </header>
   );
 }

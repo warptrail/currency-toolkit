@@ -1,25 +1,22 @@
 header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   /* min-height: 2vh; */
-  background-color: darkmagenta;
+  background-color: #232e37;
   /* padding: calc(0.8em + 1vh) 0; */
-  margin: 0;
-  padding: 0;
+  /* border: 1px solid red; */
 }
 
 h1 {
-  font-size: 4rem;
-  margin: 0.12em 0;
+  font-family: 'Odibee Sans', cursive;
+  /* border: 1px solid purple; */
+  font-size: clamp(52px, 8vw, 90px);
   background-image: linear-gradient(45deg, #07dd2b, #0f6935);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 600%;
   animation: color-change 3s linear infinite;
   animation-direction: alternate;
+  padding-bottom: 10px;
 }
 
 h1 a:active {

@@ -1,16 +1,14 @@
-h1 {
-  font-family: 'Odibee Sans', cursive;
-  margin: 0.5em;
-  font-size: 4rem;
-}
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
 a:active {
-  color: hotpink;
+  filter: hue-rotate(36deg);
+}
+
+main {
+  /* display: none; */
 }
 
 button,

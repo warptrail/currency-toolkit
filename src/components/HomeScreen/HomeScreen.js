@@ -11,6 +11,7 @@ export default function HomeScreen() {
       <p>{hsd.paragraph1}</p>
       <button>{hsd.button1}</button>
       <img src={image1} alt="promo" />
+      <p>{hsd.lorem}</p>
     </div>
   );
 }

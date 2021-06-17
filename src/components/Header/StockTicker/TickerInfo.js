@@ -8,7 +8,6 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 export default function TickerInfo(props) {
   const {
     name,
-    open,
     close,
     changeDollars,
     changePercent,
@@ -26,11 +25,11 @@ export default function TickerInfo(props) {
 
   return (
     <div className="ticker">
-      <div className="top_row">
+      <div className="left_side">
         <span className="ticker_name">{name}</span>
         <span className="ticker_close">${close}</span>
       </div>
-      <div className="bottom_row">
+      <div className="right_side">
         <span className={`ticker_change dollars ${plusOrMinus}`}>
           <span className="icon">{renderArrowIcon()}</span>$
           {changeDollarsFormat}

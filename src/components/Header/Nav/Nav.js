@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { MenuList } from './MenuList';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+
 import './Nav.css';
 
 export default function Nav(props) {
@@ -22,9 +25,19 @@ export default function Nav(props) {
     );
   });
   return (
-    <nav>
+    <nav onClick={appMenuClick ? closeMobileMenu : () => {}}>
       <div className="app_menu_dropdown">
-        <button onClick={handleClick}>App Menu</button>
+        <FontAwesomeIcon
+          className="pulse"
+          icon={faPlay}
+          transform={{ rotate: 90 }}
+        />
+        <button onClick={handleClick}>APP MENU</button>
+        <FontAwesomeIcon
+          className="pulse"
+          icon={faPlay}
+          transform={{ rotate: 90 }}
+        />
       </div>
       <div
         className={appMenuClick ? 'menu_container active' : 'menu_container'}

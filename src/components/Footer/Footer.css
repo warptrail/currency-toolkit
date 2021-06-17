@@ -1,9 +1,9 @@
 footer {
-  /* margin-top: auto; */
-  /* display: flex; */
-  /* background-color: #111417; */
-  /* padding: 0; */
-  border: 1px solid red;
+  margin-top: auto;
+  display: flex;
+  background-color: #111417;
+  padding: 0;
+  /* border: 1px solid red; */
 }
 
 .settings_bar {

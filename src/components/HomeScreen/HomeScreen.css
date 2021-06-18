@@ -1,20 +1,48 @@
 .homescreen {
   /* border: 1px solid yellow; */
+}
+
+.intro {
   background-color: #232e37;
-  /* padding: 20px; */
+  padding: 20px;
 }
 
 .homescreen h2 {
   font-family: 'Fahkwang', sans-serif;
   color: aliceblue;
+  font-size: min(10vw, 38px);
+  margin-top: 10px;
+  margin-bottom: 38px;
+}
+
+.homescreen h3 {
+  font-family: 'Fahkwang', sans-serif;
+  font-size: min(8vw, 30px);
+}
+
+.paragraph_a {
+  font-family: 'Domine', serif;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+}
+
+.img_frame {
+  margin-top: 40px;
 }
 
 .homescreen img {
-  /* width: 100%; */
-  display: none;
+  width: 100%;
+  /* display: none; */
 }
 
-.homescreen button {
-  /* font-size: 1.5rem; */
-  /* margin-top: 1em; */
+.call_to_action {
+  font-size: 1.2rem;
+  margin-top: 3em;
+  padding: 10px;
+}
+
+.about_this_project {
+  background-color: black;
+  height: 900px;
 }

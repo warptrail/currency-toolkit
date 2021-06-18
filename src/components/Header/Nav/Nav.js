@@ -27,17 +27,19 @@ export default function Nav(props) {
   return (
     <nav onClick={appMenuClick ? closeMobileMenu : () => {}}>
       <div className="app_menu_dropdown">
-        <FontAwesomeIcon
-          className="pulse"
-          icon={faPlay}
-          transform={{ rotate: 90 }}
-        />
-        <button onClick={handleClick}>APP MENU</button>
-        <FontAwesomeIcon
-          className="pulse"
-          icon={faPlay}
-          transform={{ rotate: 90 }}
-        />
+        <button onClick={handleClick}>
+          <FontAwesomeIcon
+            className="pulse"
+            icon={faPlay}
+            transform={{ rotate: 90 }}
+          />
+          APP MENU
+          <FontAwesomeIcon
+            className="pulse"
+            icon={faPlay}
+            transform={{ rotate: 90 }}
+          />
+        </button>
       </div>
       <div
         className={appMenuClick ? 'menu_container active' : 'menu_container'}

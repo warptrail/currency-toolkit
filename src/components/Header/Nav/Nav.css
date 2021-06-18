@@ -15,6 +15,11 @@ nav {
 
 .app_menu_dropdown button {
   background-color: inherit;
+  font-weight: 800;
+}
+
+.app_menu_dropdown button svg {
+  margin: 0 6px;
 }
 
 .menu_container {
@@ -98,7 +103,6 @@ nav ul li a.active {
 
 .pulse {
   font-size: 0.8rem;
-  margin: 0 5px;
   animation-name: pulse_animation;
   animation-duration: 1500ms;
   transform-origin: 70% 70%;

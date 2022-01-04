@@ -1,0 +1,93 @@
+.hs-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.hs-btn-bar {
+  text-align: center;
+}
+
+.hs-btn-bar button {
+  padding: 10px 20px;
+  margin: 10px 20px;
+  font-size: 24px;
+}
+
+.hs-title {
+  margin-bottom: 40px;
+}
+
+.hs-input-box {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #12181c;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.hs-input-box h3 {
+  margin-bottom: 20px;
+}
+
+.hs-input-box input {
+  font-size: 24px;
+  width: 50%;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.hs-input input:focus {
+  border: 3px solid yellow;
+}
+
+.active-btn {
+  border: 2px solid purple;
+  background: #1bba0b;
+  color: #27082e;
+  -webkit-box-shadow: inset 1px 1px 10px #333;
+  -moz-box-shadow: inset 1px 1px 10px #333;
+  box-shadow: inset 1px 1px 10px #333;
+}
+
+.hs-submit-btn {
+  font-size: 2rem;
+}
+
+.hs-report-box {
+  background: #12181c;
+  padding: 10px 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hs-report-box button {
+  padding: 10px 20px;
+  margin: 0 auto;
+  margin: 20px;
+}
+
+.hs-report-box h3 {
+  margin-bottom: 15px;
+  color: #0cc6dc;
+}
+
+.hs-report-text {
+  font-size: 1.3rem;
+  line-height: 140%;
+  margin-top: 10px;
+}
+
+.highlight {
+  font-size: 2rem;
+  margin: 40px 0;
+}
+
+.warning {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
+}

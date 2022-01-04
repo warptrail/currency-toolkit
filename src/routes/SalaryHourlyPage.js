@@ -1,9 +1,11 @@
 import React from 'react';
+import Percentages from '../components/Apps/PercentagesApp/Percentages';
+import SalToHour from '../components/Apps/SalaryToHourlyApp/SalToHour';
 
 export default function SalaryHourlyPage() {
   return (
-    <div>
-      <h2>Salary to Hourly App</h2>
-    </div>
+    <>
+      <SalToHour />
+    </>
   );
 }

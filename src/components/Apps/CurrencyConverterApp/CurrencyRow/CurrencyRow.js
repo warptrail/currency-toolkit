@@ -18,6 +18,7 @@ export default function CurrencyRow(props) {
         className="unit_input"
         value={amount || ''}
         onChange={onChangeAmount}
+        min={0}
       />
       <select value={selectedCurrency} onChange={onChangeCurrency}>
         {currencyOptions.map((option) => {

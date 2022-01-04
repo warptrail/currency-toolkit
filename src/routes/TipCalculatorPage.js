@@ -1,9 +1,10 @@
 import React from 'react';
+import TipCalculatorApp from '../components/Apps/TipCalculatorApp/TipCalculatorApp';
 
 export default function TIpCalculatorPage() {
   return (
-    <div>
-      <h2>Tip Calculator App</h2>
-    </div>
+    <>
+      <TipCalculatorApp />
+    </>
   );
 }

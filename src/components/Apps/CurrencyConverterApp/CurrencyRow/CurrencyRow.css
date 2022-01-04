@@ -1,0 +1,14 @@
+.unit_input {
+  border: 1px solid #333;
+  border-radius: 0.3em;
+  padding: 0.25rem;
+  /* width: 16em; */
+  font-size: clamp(1.5rem, 1.0714rem + 2.1429vw, 1.875rem);
+}
+
+select {
+  margin-left: 0.8em;
+  color: #23fe0d;
+  background: black;
+  font-size: clamp(1.5rem, 1.0714rem + 2.1429vw, 1.875rem);
+}

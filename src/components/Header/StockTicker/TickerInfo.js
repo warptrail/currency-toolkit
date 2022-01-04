@@ -23,16 +23,18 @@ export default function TickerInfo(props) {
     }
   };
 
+  console.log(typeof close);
+
   return (
     <div className="ticker">
       <div className="left_side">
         <span className="ticker_name">{name}</span>
-        <span className="ticker_close">${close}</span>
+        <span className="ticker_close">${parseFloat(close).toFixed(2)}</span>
       </div>
       <div className="right_side">
         <span className={`ticker_change dollars ${plusOrMinus}`}>
           <span className="icon">{renderArrowIcon()}</span>$
-          {changeDollarsFormat}
+          {parseFloat(changeDollarsFormat).toFixed(2)}
         </span>
         <span className={`ticker_change percent ${plusOrMinus}`}>
           {changePercent} %

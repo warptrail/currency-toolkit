@@ -36,12 +36,12 @@ function CurrencyConverterApp() {
     fromAmount = parseFloat(amount);
     let fromAmountToEUR = fromAmount / allRates[fromCurrency];
     let convertToNewCurrency = fromAmountToEUR * allRates[toCurrency];
-    toAmount = convertToNewCurrency;
+    toAmount = convertToNewCurrency.toFixed(2);
   } else {
     toAmount = parseFloat(amount);
     let toAmountToEUR = toAmount / allRates[toCurrency];
     let convertToNewCurrency = toAmountToEUR * allRates[fromCurrency];
-    fromAmount = convertToNewCurrency;
+    fromAmount = convertToNewCurrency.toFixed(2);
   }
 
   function handleFromAmountChange(e) {
@@ -57,7 +57,7 @@ function CurrencyConverterApp() {
   return (
     <div>
       <div className="currency_converter_app">
-        <h2>Currency Converter </h2>
+        <h2>Currency Converter</h2>
         <CurrencyRow
           selectedCurrency={fromCurrency}
           currencyOptions={currencyOptions}

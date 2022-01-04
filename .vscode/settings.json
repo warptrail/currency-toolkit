@@ -4,7 +4,5 @@
     "titleBar.activeBackground": "#144745",
     "titleBar.activeForeground": "#F5FCFC"
   },
-  "cSpell.words": [
-    "homescreen"
-  ]
+  "cSpell.words": ["homescreen", "WEEKSPERYEAR"]
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
 .homescreen {
   /* border: 1px solid yellow; */
 }
@@ -5,6 +7,16 @@
 .intro {
   background-color: #232e37;
   padding: 20px;
+}
+
+.intro .row {
+  display: flex;
+  flex-direction: column;
+}
+
+.column1 {
+  position: relative;
+  z-index: 1;
 }
 
 .homescreen h2 {
@@ -21,17 +33,21 @@
 }
 
 .paragraph_a {
-  font-family: 'Domine', serif;
-  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
+  font-size: clamp(1.5rem, 1.3182rem + 0.9091vw, 2rem);
   line-height: 28px;
   letter-spacing: -0.2px;
 }
 
 .img_frame {
   margin-top: 40px;
+  text-align: center;
 }
 
-.homescreen img {
+.img_frame img {
+  max-width: 452px;
+}
+.img_frame img {
   width: 100%;
   /* display: none; */
 }
@@ -42,7 +58,12 @@
   padding: 10px;
 }
 
-.about_this_project {
-  background-color: black;
-  height: 900px;
+@media only screen and (min-width: 824px) {
+  .intro .row {
+    flex-direction: row;
+  }
+
+  .column1 {
+    width: 50%;
+  }
 }

@@ -15,25 +15,6 @@ import utc from 'dayjs/plugin/utc';
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
 
-const dinoPhotos = [
-  {
-    name: 'dinosaur 1',
-    url: 'https://images.unsplash.com/photo-1583307359900-dbefeb18e3cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=856&q=80',
-  },
-  {
-    name: 'dinosaur 2',
-    url: 'https://images.unsplash.com/photo-1606856110002-d0991ce78250?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
-  },
-  {
-    name: 'dinosaur 3',
-    url: 'https://images.unsplash.com/photo-1577471486886-1e34bbae345f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=751&q=80',
-  },
-  {
-    name: 'dinosaur 4',
-    url: 'https://images.unsplash.com/photo-1589519659882-3eb28ebc769f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80',
-  },
-];
-
 const GOLD_URL =
   'https://api.polygon.io/v2/aggs/ticker/C:XAUUSD/prev?unadjusted=true&apiKey=eNgqBP1AgBICpcF9y0MDx6XdeY106aLb';
 
@@ -51,9 +32,6 @@ const BITCOIN_URL =
 
 export default function StockTicker() {
   const [tickerData, setTickerData] = useState();
-  const [tickerError, setTickerError] = useState(false);
-  const [loadingTickers, setLoadingTickers] = useState(true);
-  const [dailyTickerFetch, setDailyTickerFetch] = useState();
 
   async function getTickers() {
     // ? =====================
@@ -130,8 +108,6 @@ export default function StockTicker() {
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoadingTickers(false);
     }
   }
 
@@ -142,12 +118,6 @@ export default function StockTicker() {
 
   // ! Test Console Logs
   console.log(tickerData);
-  // console.log(dayjs(1622664000000).utc().format('MM/DD/YYYY - hh:mm a Z'));
-  // const a = dayjs(1622664000000); // 1622678399999
-  // const b = dayjs();
-  // console.log(a.diff(b, 'hour'));
-  // console.log(dayjs('1999-01-01').from(a));
-  // console.log();
 
   // How to read an object in local storage
   // console.log(localStorage.getItem('foo'));

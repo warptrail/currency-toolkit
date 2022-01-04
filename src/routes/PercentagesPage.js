@@ -1,9 +1,10 @@
 import React from 'react';
+import Percentages from '../components/Apps/PercentagesApp/Percentages';
 
 export default function PercentagesPage() {
   return (
-    <div>
-      <h2>Percentages App</h2>
-    </div>
+    <>
+      <Percentages />
+    </>
   );
 }

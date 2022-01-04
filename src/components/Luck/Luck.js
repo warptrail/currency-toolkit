@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './Luck.css';
 
@@ -39,19 +39,16 @@ const Luck = ({ okButton }) => {
 
   // ? Make string version for clipboard
 
-  const clip = luckyNumbers.join('-');
+  const clipboard = luckyNumbers.join('-');
 
   // ? render the luckyNumbers to state
 
-  const [numbers, setNumbers] = useState(luckyNumbers);
-  const [clipboardNumbers, setClipboardNumbers] = useState(clip);
-
   const copyFunction = () => {
-    navigator.clipboard.writeText(clipboardNumbers);
+    navigator.clipboard.writeText(clipboard);
   };
 
   const render = () => {
-    const spans = numbers.map((n, i) => (
+    const spans = luckyNumbers.map((n, i) => (
       <span className="nDash" key={n}>
         {i !== 0 ? '-' : ''}
         {n}

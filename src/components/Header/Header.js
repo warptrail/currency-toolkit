@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import StockTicker from './StockTicker/StockTicker';
 import Nav from './Nav/Nav';

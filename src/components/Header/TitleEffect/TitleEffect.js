@@ -17,7 +17,7 @@ export default function TitleEffect() {
       });
     }, 200);
     return () => clearInterval(interval);
-  }, []);
+  }, [seconds]);
 
   const dollaBillsYo = (i) => {
     const string = 'Currency Toolkit';
